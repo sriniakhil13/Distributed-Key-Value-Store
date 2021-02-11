@@ -57,6 +57,7 @@ class DataStore:
                 json.dump(json_decoded, db)
                 return "Done !"
             except:
+                json.dump(json_decoded, db)
                 return "Key Not found !"
 
 
