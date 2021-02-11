@@ -1,0 +1,13 @@
+import socket
+client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+port = input("Enter port you want to connect: ")
+client.connect(('0.0.0.0', int(port)))
+print("Command format :")
+print("GET key")
+print("SET key value")
+print("EXPIRE key seconds")
+input_command = input("Enter commond")
+client.send(input_command.encode('utf-8'))
+from_server = client.recv(4096)
+client.close()
+print (from_server)
